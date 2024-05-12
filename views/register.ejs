@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+      }
+
+      .container {
+        margin-top: 5rem;
+      }
+
+      .card {
+        max-width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="name"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .btn-block {
+        margin-top: 10px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .mt-4 {
+        margin-top: 1.5rem;
+      }
+      .error-message {
+        color: rgb(137, 54, 10);
+        /* font-weight: bold; */
+        font-size: 10px;
+        padding: 5px 5px 5px;
+        background-color: #FEF9CD;
+        /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); */
+        /* border: 1px solid black; */
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1 class="text-center"><i class="icon"></i> Register</h1>
+        <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <div>
+          <% errors.forEach(error => { %>
+          <p class="error-message"><%= error.msg %></p>
+          <% }); %>
+        </div>
+        <% } %>
+        <form action="/users/register" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" id="name" name="name" placeholder="Enter Name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create Password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              placeholder="Confirm Password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+        <p class="text-center mt-4">
+          Have An Account? <a href="/users/login">Login</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
